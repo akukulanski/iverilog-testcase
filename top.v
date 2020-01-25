@@ -12,7 +12,7 @@ always @(posedge clk)
 
 always @* begin
     x = 1'h0;
-    casez (y )
+    case (y)
       1'h0:
           x = 1'h1;
       1'h1:
