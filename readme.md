@@ -45,7 +45,7 @@ always @* begin
 end
 ```
 
-To:
+To: (equivalent!)
 ```verilog
 wire x;
 reg y = 1'h0;
