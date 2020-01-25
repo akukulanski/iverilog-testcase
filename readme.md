@@ -26,3 +26,35 @@ Start to read inmediately after first RisingEdge. In v10.2 the output value `x` 
 Start to read after two RisingEdges. Works.
 
 
+Now...... if I change the logic from:
+```verilog
+reg x;
+reg y = 1'h0;
+
+always @(posedge clk)
+    y  <= y + 1'h1;
+
+always @* begin
+    x = 1'h0;
+    casez (y )
+      1'h0:
+          x = 1'h1;
+      1'h1:
+          x = 1'h0;
+    endcase
+end
+```
+
+To:
+```verilog
+wire x;
+reg y = 1'h0;
+
+always @(posedge clk)
+    y  <= y + 1'h1;
+
+assign x = (y == 1'h0) ?
+           1'h1 : 1'h0;
+```
+
+It works and both test PASS with **both versions**.
