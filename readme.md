@@ -29,10 +29,6 @@ Start to read after two RisingEdges. Works.
 Now...... if I change the logic from:
 ```verilog
 reg x;
-reg y = 1'h0;
-
-always @(posedge clk)
-    y  <= y + 1'h1;
 
 always @* begin
     x = 1'h0;
@@ -48,10 +44,6 @@ end
 To: (equivalent!)
 ```verilog
 wire x;
-reg y = 1'h0;
-
-always @(posedge clk)
-    y  <= y + 1'h1;
 
 assign x = (y == 1'h0) ?
            1'h1 : 1'h0;
