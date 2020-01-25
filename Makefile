@@ -9,11 +9,9 @@ build-dockers:
 	@echo ""
 
 run-10.1:
-	docker run -v $$(pwd):/home/ -t img-10.1 make -C /home/test
-	#docker run -v $$(pwd):/home/ -it img-10.1 "make -C /home/test"
+	docker run -v $$(pwd):/home/ -t img-10.1 make -C /home/test clean all
 
 run-10.2:
-	docker run -v $$(pwd):/home/ -t img-10.2 make -C /home/test
-	#docker run -v $$(pwd):/home/ -it img-10.2 "make -C /home/test"
+	docker run -v $$(pwd):/home/ -t img-10.2 make -C /home/test clean all
 
 #iverilog -v | grep --color "Icarus Verilog version"
